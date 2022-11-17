@@ -9,26 +9,24 @@ int rmvspc1 (char S1[50]);
 int rmvspc2 (char S2[50]); 
 int chuanhoa1 (char S1[50]);
 int chuanhoa2 (char S2[50]);
-int countstr (char S1[50], char S2[50]);
+int symmetry (char S1[50]);
+int reverse (char S1[50]);
 
 int main () {
 	char S1[50], S2[50];
-	int count;
 //1.Nhap chuoi S1, S2
 		printf("\n 1.1.Nhap chuoi S1:");
 		gets(S1);
 		printf("\n 1.2.Nhap chuoi S2:");
-		gets(S2);	
-	
+		gets(S2);		
 	chuanhoa1(S1);
 		printf("\n 2.1.Chuoi chuan hoa cua S1:");
 		puts(S1);
 	chuanhoa2(S2);
 		printf("\n 2.2.Chuoi chuan hoa cua S2:");
-		puts(S2);
-		
-		printf("\n 3.So lan xuat hien chuoi S2 co trong chuoi S1: %d",count);	    
-	countstr(S1,S2);
+		puts(S2);	    
+	symmetry(S1);
+	reverse(S1);
 	return 0;	
 }
 
@@ -94,14 +92,36 @@ int chuanhoa2 (char S2[50]) {
 		}
 }
 
-//3.Dem so lan xuat hien chuoi S2 co trong chuoi S1
-int countstr (char S1[50], char S2[50]) {
-	int count = 0;
-	char *s;
-		while(s) {
-			s = strstr(S1,S2);
-			count++;
-		}
-	getch();
+//7.Kiem tra doi xung S1
+int symmetry (char S1[50]) {
+    int i, j, count = 0;
+    	strlwr(S1);
+    	for(i = 0, j = strlen(S1) - 1; i < j; i++, j--) {
+        	if(S1[i] != S1[j]) {
+            	printf("\n 7.1.Chuoi S1 khong doi xung");
+            	getch();
+           	return 0;
+        	}
+        	else {
+            count++;
+        	}
+    	}
+   		printf("\n 7.1.Chuoi S1 co doi xung");
+    	printf("\n 7.2.So chu giong nhau trong chuoi: %d",count);
+    	getch();
+    return 0;
 }
+
+//8.In chuoi dao nguoc
+int reverse (char S1[50]) {
+	int i, n;
+		chuanhoa1(S1);
+		n = strlen(S1);
+    	printf("\n 8.Chuoi dao nguoc:");
+    	for( i = n-1; i >=0 ; i--) 
+    		putchar(S1[i]);   	
+   		getch();
+	return 0;
+}
+
 	
