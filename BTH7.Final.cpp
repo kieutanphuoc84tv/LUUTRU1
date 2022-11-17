@@ -70,7 +70,7 @@ int check (int b) {
 	return CHECK;
 }
 int addition (int *a, int n) { 
-	int i, j, count = 0, ADD = 0, CHECK	= 0;
+	int i, j, count = 0, ADD = 0, CHECK = 0;
 		for(i = 0; i < n; i++)
 		{
  			if(check(*(a+i)) == 1) 
